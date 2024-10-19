@@ -36,22 +36,24 @@ interface INavigator {
 declare let navigator: INavigator
 declare let self: any
 
-const isElectronRenderer = (typeof process !== 'undefined' && typeof process.versions !== 'undefined' && typeof process.versions.electron !== 'undefined' && process.type === 'renderer')
-
 // OS detection
-if (typeof navigator === 'object' && !isElectronRenderer) {
-	const userAgent = navigator.userAgent
-	_isWindows = userAgent.indexOf('Windows') >= 0
-	_isMacintosh = userAgent.indexOf('Macintosh') >= 0
-	_isLinux = userAgent.indexOf('Linux') >= 0
-	_isFreeBSD = userAgent.indexOf('FreeBSD') >= 0
-	_isWeb = true
-} else if (typeof process === 'object') {
+if (typeof process === 'object') {
 	_isWindows = (process.platform === 'win32')
 	_isMacintosh = (process.platform === 'darwin')
 	_isLinux = (process.platform === 'linux')
 	_isFreeBSD = (process.platform === 'freebsd')
 	_isNative = true
+} else if (typeof navigator === 'object') {
+	const userAgent = navigator.userAgent
+	_isWindows = userAgent.indexOf('Windows') >= 0
+	_isMacintosh = userAgent.indexOf('Macintosh') >= 0
+	_isLinux = userAgent.indexOf('Linux') >= 0
+	_isFreeBSD = userAgent.indexOf('FreeBSD') >= 0
+	if (userAgent.indexOf('Electron') >= 0) {
+		_isNative = true
+	} else {
+		_isWeb = true
+	}
 }
 
 export const enum Platform {
