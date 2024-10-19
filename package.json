@@ -1,6 +1,6 @@
 {
-  "name": "custom-electron-titlebar",
-  "version": "4.2.8",
+  "name": "@jshafto/custom-electron-titlebar-update",
+  "version": "4.2.9",
   "description": "Library for electron that allows you to configure a fully customizable title bar.",
   "types": "./dist/index.d.ts",
   "main": "./dist/index.ts",

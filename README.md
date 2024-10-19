@@ -1,6 +1,6 @@
 # Custom Electron Titlebar
 
-This project is a typescript library for electron that allows you to configure a fully customizable title bar.
+This is a fork of the [custom-electron-titlebar](https://github.com/AlexTorresDev/custom-electron-titlebar) project from that is no longer maintained. It includes the code updates from the original developer that were never released, along with a fix for the os detection bug. The original project is a typescript library for electron that allows you to configure a fully customizable title bar.
 
 [![CI](https://badgen.net/github/checks/AlexTorresDev/custom-electron-titlebar?label=CI)](https://github.com/AlexTorresDev/custom-electron-titlebar/actions/workflows/build-release.yml)
 [![License](https://badgen.net/github/license/AlexTorresDev/custom-electron-titlebar?label=License)](https://github.com/AlexTorresDev/custom-electron-titlebar/blob/master/LICENSE)
@@ -31,21 +31,27 @@ This project is a typescript library for electron that allows you to configure a
 ![Screenshot 4](screenshots/262shots_so.jpg)
 
 # 📦 Installing
+
 You can install this package with `npm`, `pnpm` or `yarn`.
+
 ```sh
 npm install custom-electron-titlebar
 ```
+
 ```sh
 pnpm add custom-electron-titlebar
 ```
+
 ```sh
 yarn add custom-electron-titlebar
 ```
 
 # 🛠️ Usage
+
 The implementation is done as follows:
 
 In the main application file (main.js or .ts)
+
 ```js
 import { setupTitlebar, attachTitlebarToWindow } from "custom-electron-titlebar/main";
 
@@ -66,7 +72,7 @@ function createWindow() {
       preload: path.join(__dirname, 'preload.js')
     }
   });
-  
+
   ...
 
   // attach fullScreen(f11 and not 'maximized') && focus listeners
@@ -75,25 +81,28 @@ function createWindow() {
 ```
 
 In the preload file (preload.js or .ts)
+
 ```js
-import { Titlebar } from "custom-electron-titlebar";
+import { Titlebar } from 'custom-electron-titlebar'
 
 window.addEventListener('DOMContentLoaded', () => {
   // Title bar implementation
-  new Titlebar();
-});
+  new Titlebar()
+})
 ```
+
 To see the options you can include in the Title Bar constructor, such as color of elements, icons, menu position, and much more, and the methods you can use, go to the [wiki](https://github.com/AlexTorresDev/custom-electron-titlebar/wiki)
 
 ## 💰 Support
+
 If you want to support my development, you can do so by donating through [💖 Sponsor](https://github.com/sponsors/AlexTorresDev)
 
-
 ## 📝 Contributors
+
 I would like to express my sincere gratitude to all the people who have collaborated in the development and advancement of this project. I appreciate your contributions.
 
 [![](https://contrib.rocks/image?repo=AlexTorresDev/custom-electron-titlebar)](https://github.com/AlexTorresDev/custom-electron-titlebar/graphs/contributors)
 
-
 ## ✅ License
+
 This project is under the [MIT](https://github.com/AlexTorresDev/custom-electron-titlebar/blob/master/LICENSE) license.
